@@ -1,0 +1,14 @@
+<div id="signin">
+  <a href="#" class="home-link">Back to Home</a>
+  <div class="error">
+    {{#if error}}
+      {{error}}
+    {{/if}}
+  </div>
+  <form class="form-signin" id="signin-form">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <input type="text" name="username" class="form-control" placeholder="Username" required autofocus/>
+    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required autofocus/>
+    <button class="btn btn-lg btn-default btn-block" type="submit">Sign in</button>
+  </form>
+</div>
