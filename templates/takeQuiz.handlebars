@@ -15,65 +15,84 @@
   <div>
     <div class="error"></div>
   </div>
-  <div class = "clock"> </div>
   {{#if question}}
-    <div class="question" id="take-quiz-question" data-quiz-id={{quizId}} data-question-id={{_id}} data-question-index={{index}}>
-      <h4>{{question}}</h4>
-      {{#each choices}}
-        <div class="checkbox">
-          {{#if isSelected}}
-            <label><input type="checkbox" class="checkbox" checked>{{content}}</label>
-          {{else}}
-            <label><input type="checkbox" class="checkbox">{{content}}</label>
-          {{/if}}
-        </div>
-      {{else}}
-        <textarea id="take-quiz-response" class="form-control" required autofocus>{{responseContent}}</textarea>
-      {{/each}}
-
-      {{#if hasSubmitted}}
-      {{else}}
-        <div class="section">
-          <div class="container">
-            <div class="row">
-              {{#if choices}}
-                <div class="col-md-5 text-right">
-                  <a class="btn btn-lg btn-success submit-mc-quiz">Submit</a>
-                </div>
-                <!-- <button class="btn btn-lg btn-success btn-block submit-mc-quiz">Submit</button> -->
+    <div id="take-quiz-question" class="section" data-quiz-id={{quizId}} data-question-id={{_id}} data-question-index={{index}}>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h3 class="text-primary">{{question}}</h3>
+            <hr>
+            {{#each choices}}
+              <div class="checkbox">
+                {{#if isSelected}}
+                  <label><input type="checkbox" class="checkbox" checked>{{content}}</label>
                 {{else}}
-                <div class="col-md-5 text-right">
-                  <a class="btn btn-lg btn-success submit-fr-quiz">Submit</a>
-                </div>
-                <!-- <button class="btn btn-lg btn-success btn-block submit-fr-quiz">Submit</button> -->
+                  <label><input type="checkbox" class="checkbox">{{content}}</label>
                 {{/if}}
-              <div class="col-md-7">
-                <a class="btn btn-danger btn-lg home-link">Cancel</a>
               </div>
+            {{else}}
+              <p>
+                <textarea id="take-quiz-response" rows="4" class="form-control" required autofocus >{{responseContent}}</textarea>
+              </p>
+            {{/each}}
+          </div>
+          <div class="col-md-4">
+            <div class = "clock"> </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-5 text-left">
+              {{#if hasBack}}
+                {{#if choices}}
+                    <a id="previous-button-from-mc-question" class="btn btn-lg btn-primary">Back</a>
+                {{else}}
+                    <a id="previous-button-from-fr-question" class="btn btn-lg btn-primary">Back</a>
+                {{/if}}
+              {{/if}}
+            </div>
+            {{#if hasSubmitted}}
+              <div class="col-md-2 text-center">
+              </div>
+            {{else}}
+              <div class="col-md-1 text-left">
+                {{#if choices}}
+                  <a class="btn btn-lg btn-success submit-mc-quiz">Submit</a>
+                {{else}}
+                  <a class="btn btn-lg btn-success submit-fr-quiz">Submit</a>
+                {{/if}}
+              </div>
+              <div class="col-md-1">
+                <a id="cancel-quiz-button" class="btn btn-danger btn-lg home-link">Cancel</a>
+              </div>
+            {{/if}}
+            <div class="col-md-5 text-right">
+              {{#if hasNext}}
+                {{#if choices}}
+                    <a id="next-button-from-mc-question" class="btn btn-lg btn-primary">Next</a>
+                {{else}}
+                    <a id="next-button-from-fr-question" class="btn btn-lg btn-primary">Next</a>
+                {{/if}}
+              {{/if}}
             </div>
           </div>
         </div>
-      {{/if}}
+      </div>
 
-      {{#if endQuiz}}
-        <button class="btn btn-lg btn-success btn-block submit-end-quiz">End Quiz</button>
-      {{/if}}
-
-      {{#if hasBack}}
-        {{#if choices}}
-          <button id="previous-button-from-mc-question" class="btn btn-default">Back</button>
-        {{else}}
-          <button id="previous-button-from-fr-question" class="btn btn-default">Back</button>
-        {{/if}}
-      {{/if}}
-
-      {{#if hasNext}}
-        {{#if choices}}
-          <button id="next-button-from-mc-question" class="btn btn-default"> Next</button>
-        {{else}}
-          <button id="next-button-from-fr-question" class="btn btn-default">Next</button>
-        {{/if}}
-      {{/if}}
+      <div class="section">
+        <div class="container">
+          <div class="row">
+            <div id="end-quiz-container" class="col-md-12 text-center">
+              {{#if endQuiz}}
+                <a class="btn btn-block btn-lg btn-warning submit-end-quiz">End Quiz</a>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
   {{else}}
@@ -83,7 +102,7 @@
 </div>
 
 <script> 
-{{#if startTime}}
+{{#ifClock startTime}}
   clock = $(".clock").FlipClock({{startTime}},{
       autoStart: false,
       clockFace: "MinuteCounter"
@@ -94,6 +113,6 @@
     {{else}}
     clock.start()
   {{/if}}
-{{/if}}
+{{/ifClock}}
 
   </script>

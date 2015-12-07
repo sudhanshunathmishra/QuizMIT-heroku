@@ -6,8 +6,14 @@ Handlebars.registerPartial('question', Handlebars.templates['question']);
 
 //Helper to check if a user is the current user.
 Handlebars.registerHelper('ifCheckUserSolution', function(isTrue, isSelected, options) {
-	console.log("HANDLEBARS HELPER METHOD" + isTrue + isSelected);
     if (isTrue === isSelected){
+        return options.fn(this)
+    };
+    return options.inverse(this)
+});
+
+Handlebars.registerHelper('ifClock', function(startTime, options) {
+    if (startTime || startTime === 0){
         return options.fn(this)
     };
     return options.inverse(this)

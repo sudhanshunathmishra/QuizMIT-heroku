@@ -24,12 +24,13 @@
       })
       if (endQuiz) {
         var quizButton = $('<a/>', {
-          class: "btn btn-lg btn-success submit-end-quiz",
+          class: "btn btn-block btn-lg btn-warning submit-end-quiz",
           text: "End Quiz"
         });
-        $('.submit-fr-quiz').after(quizButton);
+        $('#end-quiz-container').append(quizButton);
       }
       $('.submit-fr-quiz').remove();
+      $('#cancel-quiz-button').remove();
     }).fail(function(responseObject) {
         var response = $.parseJSON(responseObject.responseText);
         $('.error').text(response.err);
@@ -58,13 +59,14 @@
        return questionObject.hasSubmitted === false;
       })
       if (endQuiz) {
-        var quizButton = $('<button/>', {
-          class: "btn btn-lg btn-success btn-block submit-end-quiz",
+        var quizButton = $('<a/>', {
+          class: "btn btn-block btn-lg btn-warning submit-end-quiz",
           text: "End Quiz"
         });
-        $('.submit-mc-quiz').after(quizButton);
+        $('#end-quiz-container').append(quizButton);
       }
       $('.submit-mc-quiz').remove();
+      $('#cancel-quiz-button').remove();
     }).fail(function(responseObject) {
         var response = $.parseJSON(responseObject.responseText);
         $('.error').text(response.err);
@@ -77,50 +79,50 @@
 
   $(document).on('click', '#previous-button-from-fr-question', function(evt) {
     clock.stop(); // Clock stops when you hit previous
-    var item = $(this).parent();
+    var item = $("#take-quiz-question");
     var index = item.data('question-index');
     var quizId = item.data('quiz-id');
-    var content = $(this).prev().prev().val().trim();
+    var content = $("#take-quiz-response").val();
     loadTakeQuizPage(quizId, index-1, index,content,[], parseInt(clock.getTime()));
   });
 
   $(document).on('click', '#previous-button-from-mc-question', function(evt) {
     clock.stop(); // Clock stops when you hit previous
-    var item = $(this).parent();
+    var item = $("#take-quiz-question");
     var index = item.data('question-index');
     var quizId = item.data('quiz-id');
-    var content = $(this).prev().prev().val().trim();
+    // var content = $(this).prev().prev().val().trim();
     var listOfSelectedChoiceIndices = [];
     $("input[type=checkbox]").each(function(choiceIndex) {
       if(this.checked){
         listOfSelectedChoiceIndices.push(choiceIndex);
       }
     })
-    loadTakeQuizPage(quizId, index-1, index, content, listOfSelectedChoiceIndices, parseInt(clock.getTime()));
+    loadTakeQuizPage(quizId, index-1, index, "", listOfSelectedChoiceIndices, parseInt(clock.getTime()));
   });
 
   $(document).on('click', '#next-button-from-fr-question', function(evt) {
     clock.stop(); // Clock stops when you hit back
-    var item = $(this).parent();
+    var item = $("#take-quiz-question");
     var index = item.data('question-index');
     var quizId = item.data('quiz-id');
-    var content = $(this).prev().prev().val().trim();
+    var content = $("#take-quiz-response").val();
     loadTakeQuizPage(quizId, index+1, index, content, [],parseInt(clock.getTime()));
   });
 
     $(document).on('click', '#next-button-from-mc-question', function(evt) {
     clock.stop(); // Clock stops when you hit back
-    var item = $(this).parent();
+    var item = $("#take-quiz-question");
     var index = item.data('question-index');
     var quizId = item.data('quiz-id');
-    var content = $(this).prev().prev().val().trim();
+    // var content = $(this).prev().prev().val().trim();
     var listOfSelectedChoiceIndices = [];
     $("input[type=checkbox]").each(function(choiceIndex) {
       if(this.checked){
         listOfSelectedChoiceIndices.push(choiceIndex);
       }
     })
-    loadTakeQuizPage(quizId, index+1, index,content,listOfSelectedChoiceIndices,parseInt(clock.getTime()));
+    loadTakeQuizPage(quizId, index+1, index,"",listOfSelectedChoiceIndices,parseInt(clock.getTime()));
   });
 
 })();

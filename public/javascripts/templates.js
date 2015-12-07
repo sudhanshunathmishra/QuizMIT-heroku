@@ -169,7 +169,7 @@ templates['quizHistory'] = template({"1":function(container,depth0,helpers,parti
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div class=\"section section-primary\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-md-12 text-center\">\n        <h3>Performance Review</h3>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"section\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n        <ul class=\"lead list-group text-center text-primary\">\n"
+  return "<div class=\"section section-primary\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-md-11 text-center\">\n        <h3>Performance Review</h3>\n      </div>\n      <div class=\"col-md-1\">\n        <a class=\"btn btn-default home-link\">Home</a>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"section\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n        <ul class=\"lead list-group text-center text-primary\">\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.listOfQuizzes : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "      </div>\n    </div>\n  </div>\n</div>\n\n";
 },"useData":true});
@@ -202,79 +202,79 @@ templates['signin'] = template({"1":function(container,depth0,helpers,partials,d
 templates['takeQuiz'] = template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "    <div class=\"question\" id=\"take-quiz-question\" data-quiz-id="
+  return "    <div id=\"take-quiz-question\" class=\"section\" data-quiz-id="
     + alias4(((helper = (helper = helpers.quizId || (depth0 != null ? depth0.quizId : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"quizId","hash":{},"data":data}) : helper)))
     + " data-question-id="
     + alias4(((helper = (helper = helpers._id || (depth0 != null ? depth0._id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"_id","hash":{},"data":data}) : helper)))
     + " data-question-index="
     + alias4(((helper = (helper = helpers.index || (depth0 != null ? depth0.index : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
-    + ">\n      <h4>"
+    + ">\n      <div class=\"container\">\n        <div class=\"row\">\n          <div class=\"col-md-8\">\n            <h3 class=\"text-primary\">"
     + alias4(((helper = (helper = helpers.question || (depth0 != null ? depth0.question : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"question","hash":{},"data":data}) : helper)))
-    + "</h4>\n"
+    + "</h3>\n            <hr>\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.choices : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
-    + "\n"
-    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.hasSubmitted : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(11, data, 0),"data":data})) != null ? stack1 : "")
-    + "\n"
-    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.endQuiz : depth0),{"name":"if","hash":{},"fn":container.program(16, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n"
-    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.hasBack : depth0),{"name":"if","hash":{},"fn":container.program(18, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n"
-    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.hasNext : depth0),{"name":"if","hash":{},"fn":container.program(23, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n    </div>\n";
+    + "          </div>\n          <div class=\"col-md-4\">\n            <div class = \"clock\"> </div>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"section\">\n        <div class=\"container\">\n          <div class=\"row\">\n            <div class=\"col-md-5 text-left\">\n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.hasBack : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "            </div>\n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.hasSubmitted : depth0),{"name":"if","hash":{},"fn":container.program(14, data, 0),"inverse":container.program(16, data, 0),"data":data})) != null ? stack1 : "")
+    + "            <div class=\"col-md-5 text-right\">\n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.hasNext : depth0),{"name":"if","hash":{},"fn":container.program(21, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "            </div>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"section\">\n        <div class=\"container\">\n          <div class=\"row\">\n            <div id=\"end-quiz-container\" class=\"col-md-12 text-center\">\n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.endQuiz : depth0),{"name":"if","hash":{},"fn":container.program(26, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "            </div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "        <div class=\"checkbox\">\n"
+  return "              <div class=\"checkbox\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.isSelected : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.program(5, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n";
+    + "              </div>\n";
 },"3":function(container,depth0,helpers,partials,data) {
     var helper;
 
-  return "            <label><input type=\"checkbox\" class=\"checkbox\" checked>"
+  return "                  <label><input type=\"checkbox\" class=\"checkbox\" checked>"
     + container.escapeExpression(((helper = (helper = helpers.content || (depth0 != null ? depth0.content : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"content","hash":{},"data":data}) : helper)))
     + "</label>\n";
 },"5":function(container,depth0,helpers,partials,data) {
     var helper;
 
-  return "            <label><input type=\"checkbox\" class=\"checkbox\">"
+  return "                  <label><input type=\"checkbox\" class=\"checkbox\">"
     + container.escapeExpression(((helper = (helper = helpers.content || (depth0 != null ? depth0.content : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"content","hash":{},"data":data}) : helper)))
     + "</label>\n";
 },"7":function(container,depth0,helpers,partials,data) {
     var helper;
 
-  return "        <textarea id=\"take-quiz-response\" class=\"form-control\" required autofocus>"
+  return "              <p>\n                <textarea id=\"take-quiz-response\" rows=\"4\" class=\"form-control\" required autofocus >"
     + container.escapeExpression(((helper = (helper = helpers.responseContent || (depth0 != null ? depth0.responseContent : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"responseContent","hash":{},"data":data}) : helper)))
-    + "</textarea>\n";
+    + "</textarea>\n              </p>\n";
 },"9":function(container,depth0,helpers,partials,data) {
-    return "";
-},"11":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "        <div class=\"section\">\n          <div class=\"container\">\n            <div class=\"row\">\n"
-    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.choices : depth0),{"name":"if","hash":{},"fn":container.program(12, data, 0),"inverse":container.program(14, data, 0),"data":data})) != null ? stack1 : "")
-    + "              <div class=\"col-md-7\">\n                <a class=\"btn btn-danger btn-lg home-link\">Cancel</a>\n              </div>\n            </div>\n          </div>\n        </div>\n";
+  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.choices : depth0),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.program(12, data, 0),"data":data})) != null ? stack1 : "");
+},"10":function(container,depth0,helpers,partials,data) {
+    return "                    <a id=\"previous-button-from-mc-question\" class=\"btn btn-lg btn-primary\">Back</a>\n";
 },"12":function(container,depth0,helpers,partials,data) {
-    return "                <div class=\"col-md-5 text-right\">\n                  <a class=\"btn btn-lg btn-success submit-mc-quiz\">Submit</a>\n                </div>\n                <!-- <button class=\"btn btn-lg btn-success btn-block submit-mc-quiz\">Submit</button> -->\n";
+    return "                    <a id=\"previous-button-from-fr-question\" class=\"btn btn-lg btn-primary\">Back</a>\n";
 },"14":function(container,depth0,helpers,partials,data) {
-    return "                <div class=\"col-md-5 text-right\">\n                  <a class=\"btn btn-lg btn-success submit-fr-quiz\">Submit</a>\n                </div>\n                <!-- <button class=\"btn btn-lg btn-success btn-block submit-fr-quiz\">Submit</button> -->\n";
+    return "              <div class=\"col-md-2 text-center\">\n              </div>\n";
 },"16":function(container,depth0,helpers,partials,data) {
-    return "        <button class=\"btn btn-lg btn-success btn-block submit-end-quiz\">End Quiz</button>\n";
-},"18":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.choices : depth0),{"name":"if","hash":{},"fn":container.program(19, data, 0),"inverse":container.program(21, data, 0),"data":data})) != null ? stack1 : "");
+  return "              <div class=\"col-md-1 text-left\">\n"
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.choices : depth0),{"name":"if","hash":{},"fn":container.program(17, data, 0),"inverse":container.program(19, data, 0),"data":data})) != null ? stack1 : "")
+    + "              </div>\n              <div class=\"col-md-1\">\n                <a id=\"cancel-quiz-button\" class=\"btn btn-danger btn-lg home-link\">Cancel</a>\n              </div>\n";
+},"17":function(container,depth0,helpers,partials,data) {
+    return "                  <a class=\"btn btn-lg btn-success submit-mc-quiz\">Submit</a>\n";
 },"19":function(container,depth0,helpers,partials,data) {
-    return "          <button id=\"previous-button-from-mc-question\" class=\"btn btn-default\">Back</button>\n";
+    return "                  <a class=\"btn btn-lg btn-success submit-fr-quiz\">Submit</a>\n";
 },"21":function(container,depth0,helpers,partials,data) {
-    return "          <button id=\"previous-button-from-fr-question\" class=\"btn btn-default\">Back</button>\n";
-},"23":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.choices : depth0),{"name":"if","hash":{},"fn":container.program(24, data, 0),"inverse":container.program(26, data, 0),"data":data})) != null ? stack1 : "");
+  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.choices : depth0),{"name":"if","hash":{},"fn":container.program(22, data, 0),"inverse":container.program(24, data, 0),"data":data})) != null ? stack1 : "");
+},"22":function(container,depth0,helpers,partials,data) {
+    return "                    <a id=\"next-button-from-mc-question\" class=\"btn btn-lg btn-primary\">Next</a>\n";
 },"24":function(container,depth0,helpers,partials,data) {
-    return "          <button id=\"next-button-from-mc-question\" class=\"btn btn-default\"> Next</button>\n";
+    return "                    <a id=\"next-button-from-fr-question\" class=\"btn btn-lg btn-primary\">Next</a>\n";
 },"26":function(container,depth0,helpers,partials,data) {
-    return "          <button id=\"next-button-from-fr-question\" class=\"btn btn-default\">Next</button>\n";
+    return "                <a class=\"btn btn-block btn-lg btn-warning submit-end-quiz\">End Quiz</a>\n";
 },"28":function(container,depth0,helpers,partials,data) {
     return "    <p><em>No questions added yet</em></p>\n";
 },"30":function(container,depth0,helpers,partials,data) {
@@ -291,10 +291,10 @@ templates['takeQuiz'] = template({"1":function(container,depth0,helpers,partials
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : {};
 
-  return "<div class=\"section section-primary\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-md-11 text-center\">\n        <h3>Taking a Quiz</h3>\n      </div>\n      <div class=\"col-md-1\">\n        <a class=\"btn btn-default home-link\">Home</a>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div>\n  <div>\n    <div class=\"error\"></div>\n  </div>\n  <div class = \"clock\"> </div>\n"
+  return "<div class=\"section section-primary\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-md-11 text-center\">\n        <h3>Taking a Quiz</h3>\n      </div>\n      <div class=\"col-md-1\">\n        <a class=\"btn btn-default home-link\">Home</a>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div>\n  <div>\n    <div class=\"error\"></div>\n  </div>\n"
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.question : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(28, data, 0),"data":data})) != null ? stack1 : "")
     + "\n</div>\n\n<script> \n"
-    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.startTime : depth0),{"name":"if","hash":{},"fn":container.program(30, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = (helpers.ifClock || (depth0 && depth0.ifClock) || helpers.helperMissing).call(alias1,(depth0 != null ? depth0.startTime : depth0),{"name":"ifClock","hash":{},"fn":container.program(30, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n  </script>\n";
 },"useData":true});
 })();
