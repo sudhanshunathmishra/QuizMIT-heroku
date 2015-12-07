@@ -10,7 +10,7 @@
 
 	$(document).on('click', '#take-quiz-page', function(evt) {
 		var userPoints = $(this).data("user-points");
-		if (userPoints-10 < 0) {
+		if (userPoints-5 < 0) {
 			alert("You don't have enough points. Add a question or do peer review before taking a quiz");
 	        return;
 		}

@@ -2,7 +2,7 @@
 
 	$(document).on('click', '#submit-feedback', function(evt) {
       var content = $('#new-feedback-input').val();
-      var id = $(this).parent().data('response-id');
+      var id = $(this).data('response-id');
       var isCorrect = document.getElementById('correct-checkbox').checked
       if (content.trim().length === 0) {
           alert('Input must not be empty');

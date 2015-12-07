@@ -1,22 +1,49 @@
 <div>
-  <div>
-    <button class="btn btn-default home-link">Back</button>
+  <div class="section section-primary">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-11 text-center">
+          <h3>Peer Review</h3>
+        </div>
+        <div class="col-md-1">
+          <a class="btn btn-default home-link">Home</a>
+        </div>
+      </div>
+    </div>
   </div>
   <div>
     <div class="error"></div>
   </div>
 
-  <h2>Peer Review</h2>
 
   {{#if content}}
-    <div class="peer-review" data-response-id={{_id}}>
-      <h4>Question: {{question}}</h4>
-      <h5>User Answer: {{content}}</h5>
-      <h5>Suggested Solution: {{solution}}</h5>
-      <textarea class="form-control" id="new-feedback-input" required autofocus/>
-      <button class="btn btn-lg btn-success btn-block" id="submit-feedback">Submit</button>
-      <label><input type="checkbox" id="correct-checkbox"> Correctly Answered </label>
+    <div class="performance-item section section-primary">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-11">
+            <h4>Question: {{question}}</h4>
+            <p>User Answer: {{content}}</p>
+            <p>Suggested Solution: {{solution}}</p>
+            <textarea class="form-control" id="new-feedback-input" required autofocus/>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="correct-checkbox">Correctly Answered
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <a id="submit-feedback" class="btn btn-lg btn-success" data-response-id={{_id}}>Submit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{else}}
+    <h3>Nothing to Peer Review Right Now</h3>
   {{/if}}
 </div>

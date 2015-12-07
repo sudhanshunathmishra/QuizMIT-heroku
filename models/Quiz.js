@@ -39,7 +39,7 @@ var Quiz = (function Quiz() {
                     user.findById(userID)
                     .exec(function(err, user){
                       if (user) {
-                        user.points -= 2
+                        user.points -= 5
                         user.save(function(err, savedUser){
                           if (!err){
                             callback(null, listOfQuestions, quizDoc);
@@ -83,7 +83,7 @@ var Quiz = (function Quiz() {
                     user.findById(userID)
                     .exec(function(err, user){
                       if (user) {
-                        user.points -= 2
+                        user.points -= 5
                         user.save(function(err, savedUser){
                           if (!err){
                             callback(null, listOfQuestions, quizDoc);
@@ -188,7 +188,9 @@ var Quiz = (function Quiz() {
       else {
         var timesArray = []
         responseArray.forEach( function(quiz) {
-          timesArray.push(quiz._id.getTimestamp().toLocaleString('en-US'))
+          if (isQuizNonEmpty(quiz)) {
+            timesArray.push(quiz._id.getTimestamp().toLocaleString('en-US'))
+          }
         })
         callback(null, timesArray)
       }

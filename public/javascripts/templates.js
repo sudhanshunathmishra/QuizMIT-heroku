@@ -10,63 +10,46 @@ templates['index'] = template({"compiler":[7,">= 4.0.0"],"main":function(contain
     return "<div class=\"header-container\">\n	<div class=\"video-container\">\n	<video autoplay=\"autoplay\" loop=\"loop\" volume=\"0\">\n		<source src=\"videos/welcomeCover.mp4\" type=\"video/mp4\">\n	</video>\n	</div>\n	<h1 id=\"welcome-heading\">Welcome to QuizMIT</h3>\n	<div class=\"welcome-buttons text-center\">\n		<a href=\"#\" class=\"btn btn-default btn-lg\" id=\"signin-btn\">Sign in</a>\n		<a href=\"#\" class=\"btn btn-default btn-lg\" id=\"register-btn\">Register</a>\n	</div>\n</div>\n";
 },"useData":true});
 templates['newsfeed'] = template({"1":function(container,depth0,helpers,partials,data) {
-    return "	    <div class=\"newsfeed-item section section-primary\">\n	      <div class=\"container\">\n	        <div class=\"row\">\n	          <div class=\"col-md-1\">\n	          	<span class=\"glyphicon glyphicon-user\"></span>\n	          </div>\n	          <div class=\"col-md-11\">\n	            <h4>You took a quiz.</h4>\n	            <p>Time: "
+    return "    <div class=\"newsfeed-item section section-primary\">\n      <div class=\"container\">\n        <div class=\"row\">\n          <div class=\"col-md-1\">\n          	<span class=\"glyphicon glyphicon-user\"></span>\n          </div>\n          <div class=\"col-md-11\">\n            <h4>You took a quiz.</h4>\n            <p>Time: "
     + container.escapeExpression(container.lambda(depth0, depth0))
-    + "</p>\n	          </div>\n	        </div>\n	      </div>\n	    </div>\n\n";
+    + "</p>\n          </div>\n        </div>\n      </div>\n    </div>\n\n";
 },"3":function(container,depth0,helpers,partials,data) {
-    return "	    <div class=\"newsfeed-item section section-primary\">\n	      <div class=\"container\">\n	        <div class=\"row\">\n	          <div class=\"col-md-1\">\n	            <span class=\"glyphicon glyphicon-user\"></span>\n	          </div>\n	          <div class=\"col-md-11\">\n	            <h4>You received feedback.</h4>\n	            <p>Time: "
+    return "    <div class=\"newsfeed-item section section-primary\">\n      <div class=\"container\">\n        <div class=\"row\">\n          <div class=\"col-md-1\">\n            <span class=\"glyphicon glyphicon-user\"></span>\n          </div>\n          <div class=\"col-md-11\">\n            <h4>You received feedback.</h4>\n            <p>Time: "
     + container.escapeExpression(container.lambda(depth0, depth0))
-    + "</p>\n	          </div>\n	        </div>\n	      </div>\n	    </div>\n";
-},"5":function(container,depth0,helpers,partials,data) {
-    return "<p> You took a quiz at "
-    + container.escapeExpression(container.lambda(depth0, depth0))
-    + " </p>\n\n";
-},"7":function(container,depth0,helpers,partials,data) {
-    return "\n<p>You recieved feedback at "
-    + container.escapeExpression(container.lambda(depth0, depth0))
-    + "!<p>\n  ";
+    + "</p>\n          </div>\n        </div>\n      </div>\n    </div>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "<div class=\"section section-primary\"> <!-- Top Header displaying username and points and logout -->\n      <div class=\"container\"> \n        <div class=\"row\">\n          <div class=\"col-md-11\">\n            <h1>Welcome, "
+  return "<div class=\"section section-primary\"> <!-- Top Header displaying username and points and logout -->\n  <div class=\"container\"> \n    <div class=\"row\">\n      <div class=\"col-md-11\">\n        <h1>Welcome, "
     + alias4(((helper = (helper = helpers.currentUser || (depth0 != null ? depth0.currentUser : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"currentUser","hash":{},"data":data}) : helper)))
-    + "</h1>\n            <p>You currently have "
+    + "</h1>\n        <p>You currently have "
     + alias4(((helper = (helper = helpers.points || (depth0 != null ? depth0.points : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"points","hash":{},"data":data}) : helper)))
-    + " points!</p>\n          </div>\n          <div class=\"col-md-1\">\n            <a id=\"logout-link\" class=\"btn btn-default\">Logout</a>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"section\"> <!-- Buttons: Add Question, Peer Review, Performance Review -->\n      <div class=\"container\">\n        <div class=\"row\">\n          <div class=\"col-md-4 text-center\">\n            <div class=\"btn-group btn-group-lg\">\n              <a class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Add Question<span class=\"caret\"></span></a>\n              <ul class=\"dropdown-menu\" role=\"menu\">\n                <li>\n                  <a href=\"#\" id=\"add-fr-question-page\">FR Question</a>\n                </li>\n                <li>\n                	<a href=\"#\" id=\"add-mc-question-page\">MC Question</a>\n                </li>\n              </ul>\n            </div>\n          </div>\n          <div class=\"col-md-4 text-center\">\n            <a id=\"peer-review-page\" class=\"btn btn-lg btn-primary\">Peer Review<br></a>\n          </div>\n          <div class=\"col-md-4 text-center\">\n            <a id=\"quiz-history-page\" class=\"btn btn-lg btn-primary\">Performance Review</a>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"section\">\n      <div class=\"container\">\n        <div class=\"row\">\n          <div class=\"col-md-12\">\n            <div class=\"input-group input-group-lg\">\n              <input type=\"text\" id=\"tag-input-question\" class=\"form-control\" placeholder=\"Type topics (ex. 6.01, 6.170) to take quiz on or leave blank for all questions\">\n              <span class=\"input-group-btn\">\n                <button id=\"take-quiz-page\" class=\"btn btn-primary\" data-user-points=\""
+    + " points!</p>\n      </div>\n      <div class=\"col-md-1\">\n        <a id=\"logout-link\" class=\"btn btn-default\">Logout</a>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"section\"> <!-- Buttons: Add Question, Peer Review, Performance Review -->\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-md-4 text-center\">\n        <div class=\"btn-group btn-group-lg\">\n          <a class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Add Question<span class=\"caret\"></span></a>\n          <ul class=\"dropdown-menu\" role=\"menu\">\n            <li>\n              <a href=\"#\" id=\"add-fr-question-page\">FR Question</a>\n            </li>\n            <li>\n            	<a href=\"#\" id=\"add-mc-question-page\">MC Question</a>\n            </li>\n          </ul>\n        </div>\n      </div>\n      <div class=\"col-md-4 text-center\">\n        <a id=\"peer-review-page\" class=\"btn btn-lg btn-primary\">Peer Review<br></a>\n      </div>\n      <div class=\"col-md-4 text-center\">\n        <a id=\"quiz-history-page\" class=\"btn btn-lg btn-primary\">Performance Review</a>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"section\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n        <div class=\"input-group input-group-lg\">\n          <input type=\"text\" id=\"tag-input-question\" class=\"form-control\" placeholder=\"Type topics (ex. 6.01, 6.170) to take quiz on or leave blank for all questions\">\n          <span class=\"input-group-btn\">\n            <button id=\"take-quiz-page\" class=\"btn btn-primary\" data-user-points=\""
     + alias4(((helper = (helper = helpers.points || (depth0 != null ? depth0.points : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"points","hash":{},"data":data}) : helper)))
-    + "\" type=\"button\">Take Quiz</button>\n              </span>\n            </div>\n            <!-- /input-group -->\n          </div>\n        </div>\n      </div>\n    </div>\n\n    <!-- Newsfeed Info -->\n"
+    + "\" type=\"button\">Take Quiz</button>\n          </span>\n        </div>\n        <!-- /input-group -->\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- Newsfeed Info -->\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.responseArray : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n"
-    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.feedbackTimes : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n<!-- <h2>Welcome, "
-    + alias4(((helper = (helper = helpers.currentUser || (depth0 != null ? depth0.currentUser : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"currentUser","hash":{},"data":data}) : helper)))
-    + " (<a style=\"color: #4099FF;\" href=\"#\" id=\"logout-link\">logout</a>)</h2>\n<h3>You currently have "
-    + alias4(((helper = (helper = helpers.points || (depth0 != null ? depth0.points : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"points","hash":{},"data":data}) : helper)))
-    + " points!</h3>\n<div margin-bottom=100px>\n    <button class=\"btn btn-default\" id=\"add-question-page\">Add Question</button>\n    <button class=\"btn btn-default\" id=\"peer-review-page\">Peer Review</button>\n\n    <button class=\"btn btn-default\" id=\"quiz-history-page\">Performance Review</button>\n    <button class=\"btn btn-default\" data-user-points=\""
-    + alias4(((helper = (helper = helpers.points || (depth0 != null ? depth0.points : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"points","hash":{},"data":data}) : helper)))
-    + "\" id=\"take-quiz-page\" >Take a Quiz</button>\n    <textarea id=\"tag-input-question\" name=\"tag-input-question\" class=\"form-control\" placeholder=\"Insert your tags\"required autofocus/>\n    <div class=\"btn-group\">\n	  <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n	    Action <span class=\"caret\"></span>\n	  </button>\n	  <ul id=\"quiz-history-button-check\" class=\"dropdown-menu\">\n	    <li><a href=\"#\">Action</a></li>\n	    <li><a href=\"#\">Another action</a></li>\n	    <li><a href=\"#\">Something else here</a></li>\n	  </ul>\n	</div>\n\n\n</div>\n\n\n"
-    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.responseArray : depth0),{"name":"each","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n"
-    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.feedbackTimes : depth0),{"name":"each","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + " -->\n";
+    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.feedbackTimes : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
 },"useData":true});
 templates['peerReview'] = template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "    <div class=\"peer-review\" data-response-id="
-    + alias4(((helper = (helper = helpers._id || (depth0 != null ? depth0._id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"_id","hash":{},"data":data}) : helper)))
-    + ">\n      <h4>Question: "
+  return "    <div class=\"performance-item section section-primary\">\n      <div class=\"container\">\n        <div class=\"row\">\n          <div class=\"col-md-11\">\n            <h4>Question: "
     + alias4(((helper = (helper = helpers.question || (depth0 != null ? depth0.question : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"question","hash":{},"data":data}) : helper)))
-    + "</h4>\n      <h5>User Answer: "
+    + "</h4>\n            <p>User Answer: "
     + alias4(((helper = (helper = helpers.content || (depth0 != null ? depth0.content : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"content","hash":{},"data":data}) : helper)))
-    + "</h5>\n      <h5>Suggested Solution: "
+    + "</p>\n            <p>Suggested Solution: "
     + alias4(((helper = (helper = helpers.solution || (depth0 != null ? depth0.solution : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"solution","hash":{},"data":data}) : helper)))
-    + "</h5>\n      <textarea class=\"form-control\" id=\"new-feedback-input\" required autofocus/>\n      <button class=\"btn btn-lg btn-success btn-block\" id=\"submit-feedback\">Submit</button>\n      <label><input type=\"checkbox\" id=\"correct-checkbox\"> Correctly Answered </label>\n    </div>\n\n";
+    + "</p>\n            <textarea class=\"form-control\" id=\"new-feedback-input\" required autofocus/>\n            <div class=\"checkbox\">\n              <label>\n                <input type=\"checkbox\" id=\"correct-checkbox\">Correctly Answered\n              </label>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"section\">\n      <div class=\"container\">\n        <div class=\"row\">\n          <div class=\"col-md-12 text-center\">\n            <a id=\"submit-feedback\" class=\"btn btn-lg btn-success\" data-response-id="
+    + alias4(((helper = (helper = helpers._id || (depth0 != null ? depth0._id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"_id","hash":{},"data":data}) : helper)))
+    + ">Submit</a>\n          </div>\n        </div>\n      </div>\n    </div>\n";
+},"3":function(container,depth0,helpers,partials,data) {
+    return "    <h3>Nothing to Peer Review Right Now</h3>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div>\n  <div>\n    <button class=\"btn btn-default home-link\">Back</button>\n  </div>\n  <div>\n    <div class=\"error\"></div>\n  </div>\n\n  <h2>Peer Review</h2>\n\n"
-    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.content : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  return "<div>\n  <div class=\"section section-primary\">\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"col-md-11 text-center\">\n          <h3>Peer Review</h3>\n        </div>\n        <div class=\"col-md-1\">\n          <a class=\"btn btn-default home-link\">Home</a>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div>\n    <div class=\"error\"></div>\n  </div>\n\n\n"
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.content : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "</div>\n";
 },"useData":true});
 templates['performanceByTags'] = template({"1":function(container,depth0,helpers,partials,data) {
@@ -259,9 +242,9 @@ templates['takeQuiz'] = template({"1":function(container,depth0,helpers,partials
 },"7":function(container,depth0,helpers,partials,data) {
     var helper;
 
-  return "        <textarea id=\"take-quiz-response\" class=\"form-control\" required autofocus> "
+  return "        <textarea id=\"take-quiz-response\" class=\"form-control\" required autofocus>"
     + container.escapeExpression(((helper = (helper = helpers.responseContent || (depth0 != null ? depth0.responseContent : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"responseContent","hash":{},"data":data}) : helper)))
-    + " </textarea>\n";
+    + "</textarea>\n";
 },"9":function(container,depth0,helpers,partials,data) {
     return "";
 },"11":function(container,depth0,helpers,partials,data) {
@@ -295,18 +278,23 @@ templates['takeQuiz'] = template({"1":function(container,depth0,helpers,partials
 },"28":function(container,depth0,helpers,partials,data) {
     return "    <p><em>No questions added yet</em></p>\n";
 },"30":function(container,depth0,helpers,partials,data) {
-    return "    clock.stop()\n";
-},"32":function(container,depth0,helpers,partials,data) {
-    return "    clock.start()\n";
-},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {};
 
-  return "<div class=\"section section-primary\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-md-12 text-center\">\n        <h3>Taking a Quiz</h3>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div>\n  <!-- <div>\n    <button class=\"btn btn-default home-link\">Cancel</button>\n  </div> -->\n  <div>\n    <div class=\"error\"></div>\n  </div>\n\n  <h2>Quiz</h2>\n\n"
-    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.question : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(28, data, 0),"data":data})) != null ? stack1 : "")
-    + "  <div class = \"clock\"> </div>\n\n</div>\n\n<script> clock = $(\".clock\").FlipClock("
+  return "  clock = $(\".clock\").FlipClock("
     + container.escapeExpression(((helper = (helper = helpers.startTime || (depth0 != null ? depth0.startTime : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(alias1,{"name":"startTime","hash":{},"data":data}) : helper)))
-    + ",{\n    autoStart: false,\n    clockFace: \"MinuteCounter\"\n  })\n\n"
-    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.hasSubmitted : depth0),{"name":"if","hash":{},"fn":container.program(30, data, 0),"inverse":container.program(32, data, 0),"data":data})) != null ? stack1 : "")
+    + ",{\n      autoStart: false,\n      clockFace: \"MinuteCounter\"\n    })\n\n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.hasSubmitted : depth0),{"name":"if","hash":{},"fn":container.program(31, data, 0),"inverse":container.program(33, data, 0),"data":data})) != null ? stack1 : "");
+},"31":function(container,depth0,helpers,partials,data) {
+    return "    clock.stop()\n";
+},"33":function(container,depth0,helpers,partials,data) {
+    return "    clock.start()\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : {};
+
+  return "<div class=\"section section-primary\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-md-11 text-center\">\n        <h3>Taking a Quiz</h3>\n      </div>\n      <div class=\"col-md-1\">\n        <a class=\"btn btn-default home-link\">Home</a>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div>\n  <div>\n    <div class=\"error\"></div>\n  </div>\n  <div class = \"clock\"> </div>\n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.question : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(28, data, 0),"data":data})) != null ? stack1 : "")
+    + "\n</div>\n\n<script> \n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.startTime : depth0),{"name":"if","hash":{},"fn":container.program(30, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n  </script>\n";
 },"useData":true});
 })();

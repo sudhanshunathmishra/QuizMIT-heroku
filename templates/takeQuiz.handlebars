@@ -1,23 +1,21 @@
 <div class="section section-primary">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 text-center">
+      <div class="col-md-11 text-center">
         <h3>Taking a Quiz</h3>
+      </div>
+      <div class="col-md-1">
+        <a class="btn btn-default home-link">Home</a>
       </div>
     </div>
   </div>
 </div>
 
 <div>
-  <!-- <div>
-    <button class="btn btn-default home-link">Cancel</button>
-  </div> -->
   <div>
     <div class="error"></div>
   </div>
-
-  <h2>Quiz</h2>
-
+  <div class = "clock"> </div>
   {{#if question}}
     <div class="question" id="take-quiz-question" data-quiz-id={{quizId}} data-question-id={{_id}} data-question-index={{index}}>
       <h4>{{question}}</h4>
@@ -30,7 +28,7 @@
           {{/if}}
         </div>
       {{else}}
-        <textarea id="take-quiz-response" class="form-control" required autofocus> {{responseContent}} </textarea>
+        <textarea id="take-quiz-response" class="form-control" required autofocus>{{responseContent}}</textarea>
       {{/each}}
 
       {{#if hasSubmitted}}
@@ -81,19 +79,21 @@
   {{else}}
     <p><em>No questions added yet</em></p>
   {{/if}}
-  <div class = "clock"> </div>
 
 </div>
 
-<script> clock = $(".clock").FlipClock({{startTime}},{
-    autoStart: false,
-    clockFace: "MinuteCounter"
-  })
+<script> 
+{{#if startTime}}
+  clock = $(".clock").FlipClock({{startTime}},{
+      autoStart: false,
+      clockFace: "MinuteCounter"
+    })
 
   {{#if hasSubmitted}}
     clock.stop()
     {{else}}
     clock.start()
   {{/if}}
+{{/if}}
 
   </script>
