@@ -1,0 +1,23 @@
+<div>
+    <button class="btn btn-default home-link">Home</button>
+</div>
+<h4> Performance Page -- By Topic </h4>
+
+<h5>Top 5 Topics</h5>
+    {{#each top}}
+        <li class="list-group-item-text"> {{this}} </li>
+    {{else}}
+        <p class="list-group-item-text"> No Topics Available. </p>
+    {{/each}}
+
+<h5>Bottom 5 Topics</h5>
+    {{#each bottom}}
+        <li class="list-group-item-text"> {{this}} </li>
+    {{else}}
+        <p class="list-group-item-text"> No Topics Available. </p>
+    {{/each}}
+
+
+
+<textarea id="tag-input-question" name="tag-input-question" class="form-control" placeholder="Insert your tags"required autofocus/>
+

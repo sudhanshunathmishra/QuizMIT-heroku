@@ -1,0 +1,82 @@
+<div class="section section-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Adding Multiple Choice Question</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form class="form-horizontal">
+  <fieldset>
+    <!-- Form Name -->
+    <!-- Text input-->
+    <div class="error"></div>
+    <div class="form-group class-input-tag">
+      <label class="col-md-4 control-label" for="class-number">Class Number</label>
+      <div class="col-md-5">
+        <input id="class-number" name="class-number" type="text" placeholder="Ex. 6.170"
+        class="form-control input-md" required autofocus>
+      </div>
+    </div>
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="tag-input">Topic Areas</label>
+      <div class="col-md-5">
+        <input id="tag-input" name="tag-input" type="text" placeholder="Ex. Javascript, Algorithm"
+        class="form-control input-md" required autofocus>
+      </div>
+    </div>
+    <!-- Textarea -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="new-mcquestion-input">Question</label>
+      <div class="col-md-4">
+        <textarea class="form-control" id="new-mcquestion-input" name="new-mcquestion-input" required autofocus></textarea>
+      </div>
+    </div>
+    <!-- Textarea -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="solution">Sample Solution</label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <span class="input-group-addon">Correct
+            <input id="choice-one-correctness" type="checkbox" aria-label="...">
+          </span>
+          <input id="new-choice-input-one" type="text" class="form-control" aria-label="...">
+        </div><!-- /input-group -->
+        <div class="input-group">
+          <span class="input-group-addon">Correct
+            <input id="choice-two-correctness" type="checkbox" aria-label="...">
+          </span>
+          <input id="new-choice-input-two" type="text" class="form-control" aria-label="...">
+        </div><!-- /input-group -->
+        <div class="input-group">
+          <span class="input-group-addon">Correct
+            <input id="choice-three-correctness" type="checkbox" aria-label="...">
+          </span>
+          <input id="new-choice-input-three" type="text" class="form-control" aria-label="...">
+        </div><!-- /input-group -->
+        <div class="input-group">
+          <span class="input-group-addon">Correct
+            <input id="choice-four-correctness" type="checkbox" aria-label="...">
+          </span>
+          <input id="new-choice-input-four" type="text" class="form-control" aria-label="...">
+        </div><!-- /input-group -->
+      </div>
+    </div>
+    <!-- Button (Double) -->
+  </fieldset>
+</form>
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 text-right">
+        <a id="submit-new-mcquestion" class="btn btn-lg btn-success">Submit</a>
+      </div>
+      <div class="col-md-7">
+        <a class="btn btn-danger btn-lg home-link">Cancel</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,6 @@
 
   //Submit button event listener for the sign in form.
   $(document).on('submit', '#signin-form', function(evt) {
-    console.log("TRYING TO SIGN IN javascripts/users");
       evt.preventDefault();
       $.post(
           '/users/login',
@@ -19,7 +18,6 @@
 
   //Submit button event listener for the registeration form.
   $(document).on('submit', '#register-form', function(evt) {
-      console.log("REGISTERING");
       evt.preventDefault();
       var formData = helpers.getFormData(this);
       if (formData.password !== formData.confirm) {
@@ -27,7 +25,6 @@
           return;
       }
       delete formData['confirm'];
-      console.log(formData);
       $.post(
           '/users',
           formData

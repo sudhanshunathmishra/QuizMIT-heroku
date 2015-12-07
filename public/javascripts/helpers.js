@@ -1,8 +1,8 @@
 // Packaged helper methods.
 //
-// Here, just one which takes the content of an HTML 
-// form (passed in as an argument) and converts the 
-// data to a set of key-value pairs for use in AJAX 
+// Here, just one which takes the content of an HTML
+// form (passed in as an argument) and converts the
+// data to a set of key-value pairs for use in AJAX
 // calls.
 var helpers = (function() {
 

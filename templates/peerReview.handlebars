@@ -12,8 +12,11 @@
     <div class="peer-review" data-response-id={{_id}}>
       <h4>Question: {{question}}</h4>
       <h5>User Answer: {{content}}</h5>
+      <h5>Suggested Solution: {{solution}}</h5>
       <textarea class="form-control" id="new-feedback-input" required autofocus/>
       <button class="btn btn-lg btn-success btn-block" id="submit-feedback">Submit</button>
+      <label><input type="checkbox" id="correct-checkbox"> Correctly Answered </label>
     </div>
+
   {{/if}}
 </div>

@@ -1,15 +1,25 @@
-<div id="register">
-  <a href="#" class="home-link">Back to Home</a>
-  <div class="error">
-    {{#if error}}
-      {{error}}
-    {{/if}}
+<div class="header-container">
+  <div class="video-container">
+  <video autoplay="autoplay" loop="loop" volume="0">
+    <source src="videos/welcomeCover.mp4" type="video/mp4">
+  </video>
   </div>
-  <form class="form-signin" id="register-form">
-    <h2 class="form-signin-heading">Register</h2>
-    <input type="text" name="username" class="form-control" placeholder="Username" required autofocus/>
-    <input type="password" name="password" class="form-control" placeholder="Password" required autofocus/>
-    <input type="password" id="password" name="confirm" class="form-control" placeholder="Confirm Password" required autofocus/>
-    <button class="btn btn-lg btn-default btn-block" type="submit">Register</button>
-  </form>
+    <div class="welcome-buttons text-center">
+      <div id="register">
+        <a href="#" class="home-link">Back to Home</a>
+        <div class="error">
+          {{#if error}}
+            {{error}}
+          {{/if}}
+        </div>
+        <form class="form-signin" id="register-form">
+          <h2 class="form-signin-heading">Register</h2>
+          <input type="text" name="username" class="form-control" placeholder="Username" required autofocus/>
+          <input type="password" name="password" class="form-control" placeholder="Password" required autofocus/>
+          <input type="password" id="password" name="confirm" class="form-control" placeholder="Confirm Password" required autofocus/>
+          <button class="btn btn-lg btn-default btn-block" type="submit">Register</button>
+        </form>
+      </div>
+    </div>
 </div>
+

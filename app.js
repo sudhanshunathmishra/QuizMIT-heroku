@@ -5,12 +5,17 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var validator = require('validator');
+var helmet = require('helmet');
+var csrf = require('csurf');
+
 require('handlebars/runtime');
 
 // Import route handlers
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var questions = require('./routes/questions');
+var performance = require('./routes/performance');
 
 // Import User model
 var User = require('./models/User')
@@ -38,12 +43,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Configuring Passport
 app.use(session({ secret : '6170', resave : true, saveUninitialized : true }));
 
 app.use(function(req, res, next) {
   if (req.session.username) {
-    User.findByUsername(req.session.username, 
+    User.findByUsername(req.session.username,
       function(err, user) {
         if (user) {
           req.currentUser = user;
@@ -57,11 +61,31 @@ app.use(function(req, res, next) {
   }
 });
 
+// SECURITY TAKEAWAYS:
+// 1) Protecting against basic XSS Attacks by setting HTTP header
+// 2) Setting Content Security Policy to whitelist script sources 
+// 3) Preventing ClickJacking by disabling anyone to put application in frame
+// 4) Hiding Powered by Express to reduce information avaliable to hackers. 
+// 5) Preventing CSRF
+// 6) Sanitizing Inputs In Model and while presenting in Handlebars by escaping strings using {{ tags}} to prevent code injection
+
+//Basic protection against XSS Attacks by setting HTTP header
+app.use(helmet.xssFilter());
+
+//Preventing ClickJacking Attacks
+// Don't allow anyone to put me in a frame.
+app.use(helmet.frameguard('deny'));
+
+//Hackers can exploit known vulnerabilities in Express/Node if they see that your site is powered by Express (or whichever framework you use). 
+//X-Powered-By: Express is sent in every HTTP request coming from Express, by default.
+app.use(helmet.hidePoweredBy());
+
 app.use('/', routes);
 app.use('/users', users);
 app.use('/questions', questions);
+app.use('/performance', performance);
 
-
+app.use(csrf()); //CSRF Security
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

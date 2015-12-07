@@ -1,0 +1,59 @@
+<div class="section section-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Adding Free Response Question</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form class="form-horizontal">
+  <fieldset>
+    <!-- Form Name -->
+    <!-- Text input-->
+    <div class="error"></div>
+    <div class="form-group class-input-tag">
+      <label class="col-md-4 control-label" for="class-number">Class Number</label>
+      <div class="col-md-5">
+        <input id="class-number" name="class-number" type="text" placeholder="Ex. 6.170"
+        class="form-control input-md" required autofocus>
+      </div>
+    </div>
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="tag-input">Topic Areas</label>
+      <div class="col-md-5">
+        <input id="tag-input" name="tag-input" type="text" placeholder="Ex. Javascript, Algorithm"
+        class="form-control input-md" required autofocus>
+      </div>
+    </div>
+    <!-- Textarea -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="new-question-input">Question</label>
+      <div class="col-md-4">
+        <textarea class="form-control" id="new-question-input" name="new-question-input" required autofocus></textarea>
+      </div>
+    </div>
+    <!-- Textarea -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="solution">Sample Solution</label>
+      <div class="col-md-4">
+        <textarea class="form-control" id="solution" name="solution" required autofocus></textarea>
+      </div>
+    </div>
+    <!-- Button (Double) -->
+  </fieldset>
+</form>
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 text-right">
+        <a id="submit-new-question" class="btn btn-lg btn-success">Submit</a>
+      </div>
+      <div class="col-md-7">
+        <a class="btn btn-danger btn-lg home-link">Cancel</a>
+      </div>
+    </div>
+  </div>
+</div>

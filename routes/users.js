@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/User.js');
+var Feedback = require('../models/Feedback.js')
 var utils = require('../utils/utils');
 var bcrypt = require('bcrypt');
+var Quiz = require('../models/Quiz.js')
 
 /*
   For both login and create user, we want to send an error code if the user
@@ -22,8 +24,8 @@ var isLoggedInOrInvalidBody = function(req, res) {
 };
 
 /*
-  This function will check to see that the provided username-password combination 
-  is valid. For empty username or password, or if the combination is not correct, 
+  This function will check to see that the provided username-password combination
+  is valid. For empty username or password, or if the combination is not correct,
   an error will be returned.
   An user already logged in is not allowed to call the login API again; an attempt
   to do so will result in an error code 403.
@@ -40,11 +42,7 @@ router.post('/login', function(req, res) {
   if (isLoggedInOrInvalidBody(req, res)) {
     return;
   }
-  console.log("Verifying password");
   User.verifyPassword(req.body.username, req.body.password, function(err, match) {
-    console.log("ROUTER POST LOGIN VERIFY PASSWORD");
-    console.log(err);
-    console.log(match);
     if (match) {
       req.session.username = req.body.username;
       utils.sendSuccessResponse(res, { user : req.body.username });
@@ -92,7 +90,7 @@ router.post('/', function(req, res) {
 
   bcrypt.genSalt(10, function(err, salt) {
     bcrypt.hash(req.body.password, salt, function(err, hash) {
-      User.createNewUser(req.body.username, hash, 
+      User.createNewUser(req.body.username, hash,
         function(err) {
           if (err) {
             if (err.taken) {
@@ -104,7 +102,7 @@ router.post('/', function(req, res) {
             utils.sendSuccessResponse(res, req.body.username);
           }
       });
-        // Store hash in your password DB. 
+        // Store hash in your password DB.
     });
   });
 });
@@ -125,21 +123,67 @@ router.get('/current', function(req, res) {
   }
 });
 
+/*
+  Get the newsfeed.
+  GET /users/newsfeed
+  No request parameters
+  Response:
+    - success; got all the required data for the newsfeed, false otherwise
+    - success.user.username -
+    -points
+    -responseArray: array of quiz times
+    -feedbackTimes: array of feedback times
+*/
+
+
+
 router.get('/newsfeed', function(req, res) {
   if (req.currentUser) {
-    utils.sendSuccessResponse(res, {user : req.currentUser.username });
+    User.findByUsername(req.currentUser.username,
+      function(err, user) {
+        if (user) {
+          Quiz.getUserQuiz(req.currentUser._id,
+            function(err, responseArray) {
+              if (err) {
+                utils.sendErrResponse(res, 500, 'An unknown error has occurred.');
+              }
+              else {
+                Feedback.getFeedbackTimestamps(req.currentUser._id,
+                function(err, feedbackTimes) {
+                  if (err) {
+                    utils.sendErrResponse(res, 500, 'An unknown error has occurred.');
+                  }
+                  else {
+                    utils.sendSuccessResponse(res, {user : user.username, points: user.points, responseArray: responseArray, feedbackTimes: feedbackTimes});
+                  }
+                })
+              }
+            })
+        } else {
+          utils.sendErrResponse(res, 500, 'An unknown error has occurred.');
+        }
+      });
   } else {
     utils.sendErrResponse(res, 403, 'Must be logged in to use this feature.');
   }
 });
- 
+
+/*
+  Create a new user.
+  GET /users/register
+  No request parameters
+  Response:
+    - success; created user, false otherwise
+    - success.user- user
+*/
+
 
 router.post('/register', function(req, res, next){
     if (isLoggedInOrInvalidBody(req, res)){
         return;
     }
 
-    User.createNewUser(req.body.username, req.body.password, 
+    User.createNewUser(req.body.username, req.body.password,
         function(err, user) {
             if (err) {
                 res.status(400).send(err);

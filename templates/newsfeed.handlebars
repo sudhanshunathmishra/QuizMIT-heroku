@@ -1,7 +1,121 @@
-<h2>Welcome, {{currentUser}} (<a style="color: #4099FF;" href="#" id="logout-link">logout</a>)</h2>
-<h3>This is going to be your news feed.</h3>
-<div>
+<div class="section section-primary"> <!-- Top Header displaying username and points and logout -->
+      <div class="container"> 
+        <div class="row">
+          <div class="col-md-11">
+            <h1>Welcome, {{currentUser}}</h1>
+            <p>You currently have {{points}} points!</p>
+          </div>
+          <div class="col-md-1">
+            <a id="logout-link" class="btn btn-default">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section"> <!-- Buttons: Add Question, Peer Review, Performance Review -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <div class="btn-group btn-group-lg">
+              <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Question<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a href="#" id="add-fr-question-page">FR Question</a>
+                </li>
+                <li>
+                	<a href="#" id="add-mc-question-page">MC Question</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <a id="peer-review-page" class="btn btn-lg btn-primary">Peer Review<br></a>
+          </div>
+          <div class="col-md-4 text-center">
+            <a id="quiz-history-page" class="btn btn-lg btn-primary">Performance Review</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="input-group input-group-lg">
+              <input type="text" id="tag-input-question" class="form-control" placeholder="Type topics (ex. 6.01, 6.170) to take quiz on or leave blank for all questions">
+              <span class="input-group-btn">
+                <button id="take-quiz-page" class="btn btn-primary" data-user-points="{{points}}" type="button">Take Quiz</button>
+              </span>
+            </div>
+            <!-- /input-group -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsfeed Info -->
+    {{#each responseArray}}
+	    <div class="newsfeed-item section section-primary">
+	      <div class="container">
+	        <div class="row">
+	          <div class="col-md-1">
+	          	<span class="glyphicon glyphicon-user"></span>
+	          </div>
+	          <div class="col-md-11">
+	            <h4>You took a quiz.</h4>
+	            <p>Time: {{this}}</p>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+
+	{{/each}}
+
+	{{#each feedbackTimes}}
+	    <div class="newsfeed-item section section-primary">
+	      <div class="container">
+	        <div class="row">
+	          <div class="col-md-1">
+	            <span class="glyphicon glyphicon-user"></span>
+	          </div>
+	          <div class="col-md-11">
+	            <h4>You received feedback.</h4>
+	            <p>Time: {{this}}</p>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	{{/each}}
+
+<!-- <h2>Welcome, {{currentUser}} (<a style="color: #4099FF;" href="#" id="logout-link">logout</a>)</h2>
+<h3>You currently have {{points}} points!</h3>
+<div margin-bottom=100px>
     <button class="btn btn-default" id="add-question-page">Add Question</button>
-    <button class="btn btn-default" id="take-quiz-page">Take a Quiz</button>
     <button class="btn btn-default" id="peer-review-page">Peer Review</button>
+
+    <button class="btn btn-default" id="quiz-history-page">Performance Review</button>
+    <button class="btn btn-default" data-user-points="{{points}}" id="take-quiz-page" >Take a Quiz</button>
+    <textarea id="tag-input-question" name="tag-input-question" class="form-control" placeholder="Insert your tags"required autofocus/>
+    <div class="btn-group">
+	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    Action <span class="caret"></span>
+	  </button>
+	  <ul id="quiz-history-button-check" class="dropdown-menu">
+	    <li><a href="#">Action</a></li>
+	    <li><a href="#">Another action</a></li>
+	    <li><a href="#">Something else here</a></li>
+	  </ul>
+	</div>
+
+
 </div>
+
+
+{{#each responseArray}}
+<p> You took a quiz at {{this}} </p>
+
+{{/each}}
+
+{{#each feedbackTimes}}
+
+<p>You recieved feedback at {{this}}!<p>
+  {{/each}} -->

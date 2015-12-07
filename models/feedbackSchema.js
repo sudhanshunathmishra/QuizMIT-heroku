@@ -2,10 +2,9 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var feedbackSchema = new Schema({
-  content: String, //the actual question being asked
-  response: { type: Schema.Types.ObjectId, ref: 'responseSchema'}
-  //tag: [String],
-  //time: Number,
+  content: String,
+  response: { type: Schema.Types.ObjectId, ref: 'responseSchema'},
+  creator: { type: Schema.Types.ObjectId, ref: 'userSchema'}
 });
 
 module.exports = mongoose.model("feedbackSchema", feedbackSchema);

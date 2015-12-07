@@ -1,0 +1,66 @@
+<div class="section section-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-11 text-center">
+        <h3>Performance on Quiz</h3>
+      </div>
+      <div class="col-md-1">
+        <a class="btn btn-default home-link">Home</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{#each performanceObjects}}
+<div class="performance-item section section-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-11">
+        <h4>Question: {{question}}</h4>
+        {{#if score}}
+            <p>Your Score: {{score}}/{{numChoices}}</p>
+        {{/if}}
+        <p>Average Response Time for this question: {{averageResponseTime}}</p>
+        <p>Your Response Time: {{responseTime}}</p>
+        <p>Speed Analysis: {{relativeSpeed}}</p>
+        {{#if solution}}
+            <p>Solution: {{solution}}</p>
+        {{/if}}
+
+        {{#if choices}}
+            <div class="col-md-12">
+              <div class="col-md-2">
+                <ul class="list-group">
+                  {{#each choices}}  
+                      {{#if isSelected}}
+                        <li class="list-group-item mc-performance-item">Selected</li>
+                      {{else}}
+                        <li class="list-group-item mc-performance-item">Not Selected</li>
+                      {{/if}}
+                  {{/each}}  
+                </ul>
+              </div>
+              <div class="col-md-10">
+                <ul class="list-group">
+                  {{#each choices}}
+                      {{#ifCheckUserSolution isTrue isSelected}}
+                        <li class="list-group-item list-group-item-success">{{content}}</li>
+                      {{else}}
+                        <li class="list-group-item list-group-item-danger">{{content}}</li>
+                      {{/ifCheckUserSolution}}
+                  {{/each}}
+                </ul>
+              </div>
+            </div>
+        {{else}}
+            {{#if feedback}}
+                <p>FEEDBACK: {{feedback}}</p>
+            {{else}}
+                <p>No Feedback Yet</p>
+            {{/if}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
